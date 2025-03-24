@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Topics - PhD in AI</title>
+    <title>PhD in AI</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script>
         function toggleTheme() {
@@ -44,16 +44,20 @@
     </script>
 </head>
 <body>
-    <div class="toggle-container" style="z-index: 100; position: relative;">
+    <div class="toggle-container" style="position: fixed; top: 10px; right: 20px; z-index: 100;">
         <button id="theme-toggle" onclick="toggleTheme()">
             <span class="theme-dot"></span>
         </button>
     </div>
     
-    <nav class="nav-top transition">
+    <header>
+        <h1>Exploring the Depths of Artificial Intelligence</h1>
+    </header>
+    
+    <nav class="nav-lower transition">
         <ul>
             <li><a href="index.html" onclick="adjustNavPosition('home')">Home</a></li>
-            <li><a href="topics.html" onclick="adjustNavPosition('other')" class="active-link">Topics</a></li>
+            <li><a href="topics.html" onclick="adjustNavPosition('other')">Topics</a></li>
             <li><a href="research.html" onclick="adjustNavPosition('other')">Research</a></li>
             <li><a href="news.html" onclick="adjustNavPosition('other')">AI News</a></li>
             <li><a href="tools.html" onclick="adjustNavPosition('other')">Tools</a></li>
@@ -62,16 +66,7 @@
     
     <main>
         <section class="content">
-            <h2>AI Topics</h2>
-            <p>Explore various topics in AI, including:</p>
-            <ul>
-                <li>Machine Learning and Deep Learning</li>
-                <li>Natural Language Processing</li>
-                <li>Computer Vision</li>
-                <li>Reinforcement Learning</li>
-                <li>AI Ethics and Fairness</li>
-                <li>Generative AI and Large Language Models</li>
-            </ul>
+            <p>Welcome to PhD in AI, your gateway to deep AI knowledge.</p>
         </section>
     </main>
     
