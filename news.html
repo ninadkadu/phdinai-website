@@ -10,7 +10,7 @@
             document.body.classList.toggle('dark-mode');
             localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
         }
-
+        
         function adjustNavPosition(page) {
             const nav = document.querySelector('nav');
             nav.classList.add('transition');
@@ -39,39 +39,41 @@
                 document.body.classList.add('dark-mode');
             }
             highlightActivePage();
-            adjustNavPosition('other');
+            adjustNavPosition(window.location.pathname.includes('index.html') ? 'home' : 'other');
         }
     </script>
 </head>
 <body>
-    <header>
-        <h1>PhD in AI</h1>
-        <p>Stay Updated with the Latest AI News</p>
-        <div class="toggle-container">
-            <button id="theme-toggle" onclick="toggleTheme()">
-                <span class="theme-dot"></span>
-            </button>
-        </div>
-    </header>
-
+    <div class="toggle-container">
+        <button id="theme-toggle" onclick="toggleTheme()">
+            <span class="theme-dot"></span>
+        </button>
+    </div>
+    
     <nav class="nav-top transition">
         <ul>
             <li><a href="index.html" onclick="adjustNavPosition('home')">Home</a></li>
             <li><a href="topics.html" onclick="adjustNavPosition('other')">Topics</a></li>
             <li><a href="research.html" onclick="adjustNavPosition('other')">Research</a></li>
-            <li><a href="news.html" class="active-link" onclick="adjustNavPosition('other')">AI News</a></li>
+            <li><a href="news.html" onclick="adjustNavPosition('other')" class="active-link">AI News</a></li>
             <li><a href="tools.html" onclick="adjustNavPosition('other')">Tools</a></li>
         </ul>
     </nav>
-
+    
     <main>
         <section class="content">
             <h2>Latest AI News</h2>
-            <p>Explore the most recent developments in AI research and industry.</p>
-            <!-- AI news content will be dynamically loaded here -->
+            <p>Stay updated with the latest advancements, breakthroughs, and research in AI.</p>
+            <ul>
+                <li>AI-powered drug discovery achieves new milestones</li>
+                <li>Breakthroughs in Quantum AI computing</li>
+                <li>New NLP models outperform previous benchmarks</li>
+                <li>Ethical AI developments and regulatory changes</li>
+                <li>Latest trends in AI research and innovation</li>
+            </ul>
         </section>
     </main>
-
+    
     <footer>
         <p>&copy; 2025 PhD in AI. All rights reserved.</p>
     </footer>
