@@ -5,6 +5,8 @@
     --background-dark: #1d1d1f;
     --text-dark: #f5f5f7;
     --accent-color: #0071e3;
+    --nav-bg-light: rgba(255, 255, 255, 0.8);
+    --nav-bg-dark: rgba(29, 29, 31, 0.8);
 }
 
 body {
@@ -21,40 +23,71 @@ body {
     color: var(--text-dark);
 }
 
+/* Header */
 header {
     text-align: center;
     padding: 20px;
     font-size: 1.5rem;
 }
 
-button {
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 1rem;
+/* Theme Toggle Button */
+.toggle-container {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+#theme-toggle {
+    width: 40px;
+    height: 24px;
+    background: var(--nav-bg-light);
+    border: 1px solid var(--text-light);
+    border-radius: 12px;
+    position: relative;
     cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
+    transition: background 0.3s ease-in-out;
 }
 
-button:hover {
-    opacity: 0.8;
+.dark-mode #theme-toggle {
+    background: var(--nav-bg-dark);
+    border: 1px solid var(--text-dark);
 }
 
+.theme-dot {
+    width: 18px;
+    height: 18px;
+    background: var(--text-light);
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: 0.3s ease-in-out;
+}
+
+.dark-mode .theme-dot {
+    background: var(--text-dark);
+    left: 19px;
+}
+
+/* Navigation */
 nav {
     display: flex;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
     padding: 10px 0;
-    position: sticky;
-    top: 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: top 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
-.dark-mode nav {
-    background: rgba(29, 29, 31, 0.8);
+.nav-center {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav-top {
+    top: 0;
+    transform: translateY(0);
 }
 
 nav ul {
@@ -62,6 +95,16 @@ nav ul {
     display: flex;
     padding: 0;
     gap: 20px;
+    background: var(--nav-bg-light);
+    backdrop-filter: blur(10px);
+    padding: 15px 30px;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease-in-out;
+}
+
+.dark-mode nav ul {
+    background: var(--nav-bg-dark);
 }
 
 nav ul li {
@@ -72,36 +115,23 @@ nav ul li a {
     text-decoration: none;
     color: inherit;
     font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
 }
 
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Hero Section */
 .hero {
     text-align: center;
-    padding: 50px 20px;
+    padding: 80px 20px;
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 20px;
     font-size: 0.9rem;
 }
-
-/* Theme Toggle Button - Apple Inspired */
-#theme-toggle {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: var(--text-light);
-    transition: background-color 0.3s ease-in-out;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.dark-mode #theme-toggle {
-    background-color: var(--text-dark);
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
-}
-
-
