@@ -3,22 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tools - PhD in AI</title>
+    <title>AI Tools - PhD in AI</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        }
+
+        function adjustNavPosition(page) {
+            const nav = document.querySelector('nav');
+            nav.classList.add('transition');
+            if (page === 'home') {
+                nav.classList.remove('nav-top');
+                nav.classList.add('nav-center');
+            } else {
+                nav.classList.remove('nav-center');
+                nav.classList.add('nav-top');
+            }
+        }
+
+        function highlightActivePage() {
+            const currentPage = window.location.pathname.split("/").pop();
+            document.querySelectorAll("nav ul li a").forEach(link => {
+                if (link.getAttribute("href") === currentPage) {
+                    link.classList.add("active-link");
+                } else {
+                    link.classList.remove("active-link");
+                }
+            });
+        }
+
+        window.onload = function() {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+            highlightActivePage();
+            adjustNavPosition('other');
+        }
+    </script>
 </head>
 <body>
-    <nav class="nav-top">
+    <header>
+        <h1>PhD in AI</h1>
+        <p>AI Tools for Research & Development</p>
+        <div class="toggle-container">
+            <button id="theme-toggle" onclick="toggleTheme()">
+                <span class="theme-dot"></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="nav-top transition">
         <ul>
             <li><a href="index.html" onclick="adjustNavPosition('home')">Home</a></li>
-            <li><a href="topics.html">Topics</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="news.html">AI News</a></li>
-            <li><a href="tools.html">Tools</a></li>
+            <li><a href="topics.html" onclick="adjustNavPosition('other')">Topics</a></li>
+            <li><a href="research.html" onclick="adjustNavPosition('other')">Research</a></li>
+            <li><a href="news.html" onclick="adjustNavPosition('other')">AI News</a></li>
+            <li><a href="tools.html" class="active-link" onclick="adjustNavPosition('other')">Tools</a></li>
         </ul>
     </nav>
+
     <main>
-        <h2>Contact</h2>
-        <p>Reach out for inquiries or collaborations.</p>
+        <section class="content">
+            <h2>Explore AI Tools</h2>
+            <p>Discover AI-powered tools that enhance research, development, and learning in artificial intelligence.</p>
+            <!-- AI Tools content will be added here -->
+        </section>
     </main>
+
+    <footer>
+        <p>&copy; 2025 PhD in AI. All rights reserved.</p>
+    </footer>
 </body>
 </html>
