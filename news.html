@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Topics - PhD in AI</title>
+    <title>AI News - PhD in AI</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script>
         function toggleTheme() {
@@ -23,42 +23,55 @@
             }
         }
 
+        function highlightActivePage() {
+            const currentPage = window.location.pathname.split("/").pop();
+            document.querySelectorAll("nav ul li a").forEach(link => {
+                if (link.getAttribute("href") === currentPage) {
+                    link.classList.add("active-link");
+                } else {
+                    link.classList.remove("active-link");
+                }
+            });
+        }
+
         window.onload = function() {
             if (localStorage.getItem('theme') === 'dark') {
                 document.body.classList.add('dark-mode');
             }
-            adjustNavPosition('other');  // Moves nav to top for subpages
+            highlightActivePage();
+            adjustNavPosition('other');
         }
     </script>
 </head>
 <body>
     <header>
         <h1>PhD in AI</h1>
-        <p>Exploring the Depths of Artificial Intelligence</p>
+        <p>Stay Updated with the Latest AI News</p>
         <div class="toggle-container">
             <button id="theme-toggle" onclick="toggleTheme()">
                 <span class="theme-dot"></span>
             </button>
         </div>
     </header>
-    
+
     <nav class="nav-top transition">
         <ul>
             <li><a href="index.html" onclick="adjustNavPosition('home')">Home</a></li>
             <li><a href="topics.html" onclick="adjustNavPosition('other')">Topics</a></li>
             <li><a href="research.html" onclick="adjustNavPosition('other')">Research</a></li>
-            <li><a href="news.html" onclick="adjustNavPosition('other')">AI News</a></li>
+            <li><a href="news.html" class="active-link" onclick="adjustNavPosition('other')">AI News</a></li>
             <li><a href="tools.html" onclick="adjustNavPosition('other')">Tools</a></li>
         </ul>
     </nav>
-    
+
     <main>
-        <section>
-            <h2>Topics</h2>
-            <p>Welcome to the Topics page. Here you will find various AI subjects explored in depth.</p>
+        <section class="content">
+            <h2>Latest AI News</h2>
+            <p>Explore the most recent developments in AI research and industry.</p>
+            <!-- AI news content will be dynamically loaded here -->
         </section>
     </main>
-    
+
     <footer>
         <p>&copy; 2025 PhD in AI. All rights reserved.</p>
     </footer>
