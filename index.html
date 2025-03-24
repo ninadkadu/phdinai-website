@@ -13,6 +13,7 @@
         
         function adjustNavPosition(page) {
             const nav = document.querySelector('nav');
+            nav.classList.add('transition');
             if (page === 'home') {
                 nav.classList.remove('nav-top');
                 nav.classList.add('nav-center');
@@ -40,7 +41,7 @@
         </div>
     </header>
     
-    <nav class="nav-center">
+    <nav class="nav-center transition">
         <ul>
             <li><a href="index.html" onclick="adjustNavPosition('home')">Home</a></li>
             <li><a href="topics.html" onclick="adjustNavPosition('other')">Topics</a></li>
