@@ -16,9 +16,9 @@
             nav.classList.add('transition');
             if (page === 'home') {
                 nav.classList.remove('nav-top');
-                nav.classList.add('nav-center');
+                nav.classList.add('nav-lower');
             } else {
-                nav.classList.remove('nav-center');
+                nav.classList.remove('nav-lower');
                 nav.classList.add('nav-top');
             }
         }
@@ -44,12 +44,7 @@
     </script>
 </head>
 <body>
-    <header id="home-header" style="display: none;">
-        <h1>PhD in AI</h1>
-        <p>Exploring the Depths of Artificial Intelligence</p>
-    </header>
-    
-    <div class="toggle-container">
+    <div class="toggle-container" style="z-index: 100; position: relative;">
         <button id="theme-toggle" onclick="toggleTheme()">
             <span class="theme-dot"></span>
         </button>
@@ -58,7 +53,7 @@
     <nav class="nav-top transition">
         <ul>
             <li><a href="index.html" onclick="adjustNavPosition('home')">Home</a></li>
-            <li><a href="topics.html" onclick="adjustNavPosition('other')">Topics</a></li>
+            <li><a href="topics.html" onclick="adjustNavPosition('other')" class="active-link">Topics</a></li>
             <li><a href="research.html" onclick="adjustNavPosition('other')">Research</a></li>
             <li><a href="news.html" onclick="adjustNavPosition('other')">AI News</a></li>
             <li><a href="tools.html" onclick="adjustNavPosition('other')">Tools</a></li>
@@ -67,15 +62,15 @@
     
     <main>
         <section class="content">
-            <h2>Topics in AI</h2>
-            <p>Explore various AI concepts, methodologies, and applications.</p>
+            <h2>AI Topics</h2>
+            <p>Explore various topics in AI, including:</p>
             <ul>
-                <li>Machine Learning</li>
-                <li>Deep Learning</li>
+                <li>Machine Learning and Deep Learning</li>
                 <li>Natural Language Processing</li>
                 <li>Computer Vision</li>
                 <li>Reinforcement Learning</li>
-                <li>AI Ethics</li>
+                <li>AI Ethics and Fairness</li>
+                <li>Generative AI and Large Language Models</li>
             </ul>
         </section>
     </main>
@@ -83,13 +78,5 @@
     <footer>
         <p>&copy; 2025 PhD in AI. All rights reserved.</p>
     </footer>
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            if (window.location.pathname.includes("index.html")) {
-                document.getElementById("home-header").style.display = "block";
-            }
-        });
-    </script>
 </body>
 </html>
