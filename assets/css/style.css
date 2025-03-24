@@ -85,20 +85,23 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Theme Toggle Button */
+/* Theme Toggle Button - Apple Inspired */
 #theme-toggle {
     position: absolute;
     top: 15px;
     right: 20px;
-    background: none;
-    border: none;
-    font-size: 1.2rem;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--text-light);
+    transition: background-color 0.3s ease-in-out;
     cursor: pointer;
-    color: var(--text-light);
-    transition: color 0.3s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .dark-mode #theme-toggle {
-    color: var(--text-dark);
+    background-color: var(--text-dark);
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
 }
+
 
