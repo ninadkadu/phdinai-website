@@ -84,3 +84,21 @@ footer {
     padding: 20px;
     font-size: 0.9rem;
 }
+
+/* Theme Toggle Button */
+#theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: color 0.3s ease-in-out;
+}
+
+.dark-mode #theme-toggle {
+    color: var(--text-dark);
+}
+
