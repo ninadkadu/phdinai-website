@@ -6,50 +6,54 @@
     <title>PhD in AI</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const nav = document.querySelector("nav");
-            const homeLink = document.querySelector(".home-link");
-            const isHomePage = window.location.pathname.includes("index.html") || window.location.pathname === "/";
-            
-            if (isHomePage) {
-                nav.classList.add("centered-nav");
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        }
+        
+        function adjustNavPosition(page) {
+            const nav = document.querySelector('nav');
+            if (page === 'home') {
+                nav.classList.remove('nav-top');
+                nav.classList.add('nav-center');
+            } else {
+                nav.classList.remove('nav-center');
+                nav.classList.add('nav-top');
             }
-            
-            document.querySelectorAll("nav a").forEach(link => {
-                link.addEventListener("click", function(event) {
-                    if (!this.classList.contains("home-link")) {
-                        nav.classList.remove("centered-nav");
-                        nav.classList.add("top-nav");
-                    } else {
-                        nav.classList.remove("top-nav");
-                        nav.classList.add("centered-nav");
-                    }
-                });
-            });
-        });
+        }
+
+        window.onload = function() {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+        }
     </script>
 </head>
 <body>
     <header>
         <h1>PhD in AI</h1>
         <p>Exploring the Depths of Artificial Intelligence</p>
-        <button id="themeToggle">🌙</button>
+        <div class="toggle-container">
+            <button id="theme-toggle" onclick="toggleTheme()">
+                <span class="theme-icon">☀️</span>
+            </button>
+        </div>
     </header>
     
-    <nav>
+    <nav class="nav-center">
         <ul>
-            <li><a href="index.html" class="home-link">Home</a></li>
-            <li><a href="topics.html">Topics</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="news.html">AI News</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html" onclick="adjustNavPosition('home')">Home</a></li>
+            <li><a href="topics.html" onclick="adjustNavPosition('other')">Topics</a></li>
+            <li><a href="research.html" onclick="adjustNavPosition('other')">Research</a></li>
+            <li><a href="news.html" onclick="adjustNavPosition('other')">AI News</a></li>
+            <li><a href="contact.html" onclick="adjustNavPosition('other')">Contact</a></li>
         </ul>
     </nav>
     
     <main>
         <section class="hero">
-            <h2>Welcome to PhD in AI</h2>
-            <p>Discover, Learn, and Research the Future of AI.</p>
+            <h2>Website Under Construction</h2>
+            <p>Launching on January 1, 2026.</p>
         </section>
     </main>
     
